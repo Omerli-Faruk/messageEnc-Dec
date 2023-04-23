@@ -1,18 +1,18 @@
 from cryptography.fernet import Fernet
 
-# Şifrelenmiş mesajı okuyun
+# Read the encrypted message
 with open('encrypted.txt', 'rb') as file:
     encrypted_message = file.read()
 
-# Anahtar dosyasını okuyun
+# Read key file
 with open('key.key', 'rb') as file:
     key = file.read()
 
-# Fernet nesnesi oluşturun
+# Create a Fernet object
 fernet = Fernet(key)
 
-# Şifreyi çözün
+# Decrypt the password
 decrypted_message = fernet.decrypt(encrypted_message)
 
-# Şifresi çözülmüş mesajı ekrana yazdırın
-print("Mesajın Şifresi Çözüldü: ", decrypted_message.decode())
+# Print the decrypted message to the screen
+print("Message Decrypted: ", decrypted_message.decode())

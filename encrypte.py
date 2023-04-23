@@ -1,22 +1,22 @@
 from cryptography.fernet import Fernet
 
-# Şifrelemek için bir anahtar oluşturun
+# Generate a key to encrypt
 key = Fernet.generate_key()
 
-# Anahtar bilgisini bir dosyaya yazın
+# Write the key information to a file
 with open('key.key', 'wb') as key_file:
     key_file.write(key)
 
-# Şifreleme için bir Fernet nesnesi oluşturun
+# Create a Fernet object for encryption
 cipher = Fernet(key)
 
-# Mesajı alın
-message = input("Lütfen şifrelenecek mesajı girin: ")
+# Get the message
+message = input("Please enter the message to be encrypted: ")
 
-# Mesajı şifreleyin
+# Encrypt the message
 encrypted_message = cipher.encrypt(message.encode())
 
-# Şifreli mesajı bir dosyaya yazın
+# Write the encrypted message to a file
 with open('encrypted.txt', 'wb') as encrypted_file:
     encrypted_file.write(encrypted_message)
-print("Mesajınız Şifrelendi: ", encrypted_message)
+print("Your Message Has Been Encrypted: ", encrypted_message)
